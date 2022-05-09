@@ -1,0 +1,24 @@
+node('master') 
+{
+    stage('Continuous Download') 
+    {
+        git 'https://github.com/cnu10/sai_maven.git'
+    }
+    stage('Continuous Build') 
+    {
+        sh 'mvn package'
+    }
+    stage('Continuous Deployment') 
+    {
+        sh 'scp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war ubuntu@172.31.9.254:/var/lib/tomcat9/webapps/qaTestApp.war'
+    }
+    stage('Continuous Testing') 
+    {
+        git 'https://github.com/cnu10/sai_Functionaltesting.git'
+        sh 'java -jar /home/ubuntu/.jenkins/workspace/ScriptedPipeline/testing.jar'
+    }
+    stage('Continuous Delivery') 
+    {
+        sh 'scp /home/ubuntu/.jenkins/workspace/ScriptedPipeline/webapp/target/webapp.war ubuntu@172.31.15.123:/var/lib/tomcat9/webapps/prodTestApp.war'
+    }
+}
