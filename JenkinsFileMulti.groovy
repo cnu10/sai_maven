@@ -3,21 +3,21 @@ pipeline
     agent any
     stages
     {
-        stage('ContinuousDownload_Master')
+        stage('ContinuousDownload_Masterbranch')
         {
             steps
             {
                 git 'https://github.com/intelliqittrainings/maven.git'
             }
         }
-        stage('ContinuousBuild_Master')
+        stage('ContinuousBuild_Masterbranch')
         {
             steps
             {
                 sh 'mvn package'
             }
         }
-        stage('ContinuousDeployment_Master')
+        stage('ContinuousDeployment_Masterbranch')
         {
             steps
             {
