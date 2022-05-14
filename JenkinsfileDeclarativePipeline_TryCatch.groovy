@@ -53,7 +53,7 @@ pipeline {
             git 'https://github.com/cnu10/sai_Functionaltesting.git'
             sh 'java -jar /home/ubuntu/.jenkins/workspace/DeclarativePipeline/testing.jar'
           }
-          catch(exception e4){
+          catch(Exception e4){
             mail bcc: '', body: 'QA test failed', cc: '', from: '', replyTo: '', subject: 'QA testing failed', to: 'developers@gmail.com'
             exit(1)
           }
@@ -69,7 +69,7 @@ pipeline {
     //         input message: 'waiting for approval from SME srinivas', submitter: 'srinivas'
     //         sh scp /home/ubuntu/.jenkins/workspace/DeclarativePipeline/webapp/target/webapp.war ubuntu@172.31.15.123:/var/lib/tomcat9/webapps/prodappDec.war'
     //       }
-    //       catch(exception e5){
+    //       catch(Exception e5){
     //         mail bcc: '', body: 'deployment failed in prod', cc: '', from: '', replyTo: '', subject: 'unable to deploy into prod tomcat server ', to: 'mwadmin@gmail.com'
     //         exit(1)          
 
