@@ -62,22 +62,22 @@ pipeline {
         
       }
     }
-    stage('Continuous Delivery') {
-      steps {
-        script{
-          try{
-            input message: 'waiting for approval from SME srinivas', submitter: 'srinivas'
-            sh scp /home/ubuntu/.jenkins/workspace/DeclarativePipeline/webapp/target/webapp.war ubuntu@172.31.15.123:/var/lib/tomcat9/webapps/prodappDec.war'
-          }
-          catch(exception e5){
-            mail bcc: '', body: 'deployment failed in prod', cc: '', from: '', replyTo: '', subject: 'unable to deploy into prod tomcat server ', to: 'mwadmin@gmail.com'
-            exit(1)          
+    // stage('Continuous Delivery') {
+    //   steps {
+    //     script{
+    //       try{
+    //         input message: 'waiting for approval from SME srinivas', submitter: 'srinivas'
+    //         sh scp /home/ubuntu/.jenkins/workspace/DeclarativePipeline/webapp/target/webapp.war ubuntu@172.31.15.123:/var/lib/tomcat9/webapps/prodappDec.war'
+    //       }
+    //       catch(exception e5){
+    //         mail bcc: '', body: 'deployment failed in prod', cc: '', from: '', replyTo: '', subject: 'unable to deploy into prod tomcat server ', to: 'mwadmin@gmail.com'
+    //         exit(1)          
 
-        }
+    //     }
         
-      }
-    }
-    }
+    //   }
+    // }
+    // }
   }
   //post{
   //   success{
