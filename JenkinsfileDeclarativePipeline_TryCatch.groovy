@@ -17,7 +17,7 @@ pipeline {
       }
         
       }
-    }
+    
     stage('Continuous Build') {
       steps {
         script{
@@ -77,7 +77,7 @@ pipeline {
         
       }
     }
-
+    }
   }
   //post{
   //   success{
