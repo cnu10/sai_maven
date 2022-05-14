@@ -21,7 +21,7 @@ pipeline
         {
             steps
             {
-               sh 'scp /home/ubuntu/.jenkins/workspace/ultiBranchPipelineTestJob_master/webapp/target/webapp.war ubuntu@172.31.9.254:/var/lib/tomcat9/webapps/qaappDec.war'
+               sh 'scp /home/ubuntu/.jenkins/workspace/MultiBranchPipelineJob_master/webapp/target/webapp.war ubuntu@172.31.9.254:/var/lib/tomcat9/webapps/qaappDec.war'
             }
         }
         
